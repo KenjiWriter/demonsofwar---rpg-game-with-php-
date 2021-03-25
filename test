@@ -1,0 +1,28 @@
+            $item_id = (int)$_POST['attack_id'];
+            $item = new Item($item_id, $con);
+            $sql = "SELECT items FROM user WHERE id=19";
+            $result = mysqli_query($con, $sql);
+            $player->items[] = array();
+            if (empty($player->items)){
+                $pieces = 1;
+            }else {
+                if(mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)){
+                        $player->items[] = $row;
+                    }
+                }
+                foreach ($player->items[$attack_id] as $player_item) {
+                    $pieces = $player_item;
+                    $pieces = $pieces+1;
+                }
+            }
+
+
+
+
+                    if (isset($player->items[$id])) {
+                        continue;}
+
+                                    if(isset($player->items[$attack_id])){
+                                        throw new Exception("You already have this item!");
+                                    }
